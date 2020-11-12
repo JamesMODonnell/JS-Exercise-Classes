@@ -40,9 +40,28 @@ class Airplane {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-class Person {
 
-}
+  function Person(name, age) {
+    this.name = name; 
+    this.age = age;
+    this.stomach = [];
+  }
+  
+  Person.prototype.eat = function(edible){
+    if (this.stomach.length <= 10){
+      this.stomach.push(edible);
+    }
+  }
+  
+  Person.prototype.poop = function(){
+    this.stomach = [];
+  }
+  Person.prototype.toString = function(){
+    return `Name: ${this.name}, Age: ${this.age}`;
+  }
+  
+  console.log(Person(Mary, 50))
+
 
 /*
   TASK 2
@@ -59,6 +78,25 @@ class Person {
 */
 
 class Car {
+  constructor(model , milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0
+    this.odometer = 0 
+  }
+  fill(gallons){
+    if(this.tank < 100){
+      this.tank = gallons + this.tank
+    }
+  }
+drive(distance){
+  this.odometer = distance;
+  let distanceDrive = (distance/this.milesPerGallon);
+  this.tank = Math.round(distance/this.milesPerGallon);
+  if(distanceDriven > this.tank){
+    return `I ran out of fuel at ${this.odometer} miles!`
+  }
+}
 
 }
 
